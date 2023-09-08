@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Página de Hacking de Fuchst3uf3lsw1ld</title>
+        <style>
+                body {
+                        background-color: #1c1c1c; /* Fondo oscuro */
+                        color: red; /* Texto de color */
+                        font-family: 'Chiller', cursive; /* Fuente  */
+                        font-size: 28px; /* Tamaño de fuente grande */
+                        text-align: center; /* Centrar el contenido en la página */
+                        padding-top: 50px; /* Espacio en la parte superior */
+                }
+
+                h1 {
+                        font-size: 48px; /* Tamaño de fuente grande para el encabezado */
+                        margin-bottom: 30px; /* Espacio en la parte inferior del encabezado */
+                }
+
+                p {
+                        margin-bottom: 20px; /* Espacio entre los párrafos */
+                }
+
+                .container {
+                        width: 80%; /* Ancho del contenedor principal */
+                        margin: auto; /* Centrar el contenedor en la página */
+                        border: 5px solid red; /* Borde con color terrorífico */
+                        padding: 20px; /* Espacio dentro del contenedor */
+                }
+        </style>
+</head>
+<body>
+        <div class="container">
+                <h1>Bienvenido a Fuchst3uf3lsw1ld</h1>
+                <p>Esto es un servidor propiedad de Fuchst3uf3lsw1ld
+        </div>
+
+        <script>
+                // Agrega las rutas de tus imágenes de cabeza de hida aquí
+                const imagePaths = [
+                        "./image1.png",
+                        "./image3.png",
+                        "./image2.png"
+                ];
+
+                const body = document.querySelector("body");
+                const displayTime = 2000; // Tiempo que se muestra la imagen en ms
+
+                // Función para mostrar la imagen de forma aleatoria
+                function displayRandomImage() {
+                        const randomIndex = Math.floor(Math.random() * imagePaths.length);
+                        const image = new Image();
+                        image.src = imagePaths[randomIndex];
+                        image.style.position = "absolute";
+                        image.style.top = Math.floor(Math.random() * window.innerHeight) + "px";
+                        image.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
+                        body.appendChild(image);
+                        setTimeout(() => {
+                                body.removeChild(image);
+                        }, displayTime);
+                }
+
+                // Llama a la función de forma periódica
+                setInterval(displayRandomImage, 500);
+        </script>
+</body>
+</html>
