@@ -3,7 +3,16 @@
 # Actualizar paquetes e instalar herramientas básicas
 apt update
 apt upgrade -y
-apt install -y git wget nmap
+apt install -y git 
+apt install -y wget
+apt install -y nmap
+apt install -y apache2
+apt install -y john
+apt install -y hydra
+apt install -y tor
+apt install -y curl
+apt install -y wget
+apt install -y gnupg2
 
 #Samba
 apt install -y samba
@@ -26,13 +35,11 @@ echo "   read only = no" >> /etc/samba/smb.conf
 # Reinicia el servicio Samba
 systemctl restart smbd
 
-# Instalar Apache
-apt install -y apache2
+# Instalar Apache y configurar
+
 mkdir /var/www/html/imagenes
 
 # Otras herramientas esenciales de ciberseguridad (añade o quita según tus necesidades)
-apt install -y john hydra tor git
-apt install -y curl wget gnupg2
 
 # Metaexploit
 apt install curl gpg autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev libsqlite3-dev libpq-dev libpcap-dev libmagick++-dev libidn11-dev libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev libyaml-dev python3-dev liblzma-dev libtool
@@ -43,18 +50,18 @@ apt update
 apt install metasploit-framework
 
 # Clonar repositorios interesantes
-cd /cositas
+cd $folder_path
 git clone https://github.com/SergiGiribet/google-SignIn
 git clone https://github.com/rajkumardusad/IP-Tracer.git
 git clone https://github.com/Gerijacki/Mine-Startup
-wget https://anonymfile.com/f/292a1945-18ad-401f-bbeb-8617f7c81fdb
+git clone https://github.com/ShadowVMX/Web-Scanner 
 
 # Server web
 rm /var/www/html/index.html
-cp /cositas/Mine-Startup/index.html /var/www/html
-cp /cositas/Mine-Startup/image1.png /var/www/html
-cp /cositas/Mine-Startup/image2.png /var/www/html
-cp /cositas/Mine-Startup/image3.png /var/www/html
+cp /$folder_path/Mine-Startup/index.html /var/www/html
+cp /$folder_path/Mine-Startup/image1.png /var/www/html
+cp /$folder_path/Mine-Startup/image2.png /var/www/html
+cp /$folder_path/Mine-Startup/image3.png /var/www/html
 
 echo "Se han instalado todas las herramientas correctamente"
 echo "Samba se ha instalado y configurado para compartir la carpeta $folder_name en $folder_path."
