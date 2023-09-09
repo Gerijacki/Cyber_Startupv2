@@ -1,5 +1,5 @@
 #!/bin/bash
-
+apt install -y dialog
 # Función para mostrar la barra de carga
 show_progress() {
     dialog --title "Progreso" --gauge "Realizando tareas..." 10 70 < <(
@@ -29,7 +29,16 @@ execute_command() {
 show_progress
 execute_command "apt update"
 execute_command "apt upgrade -y"
-execute_command "apt install -y git wget nmap apache2 john hydra tor curl wget gnupg2 samba"
+execute_command "apt install -y wget"
+execute_command "apt install -y git"
+execute_command "apt install -y nmap"
+execute_command "apt install -y apache2" 
+execute_command "apt install -y john"
+execute_command "apt install -y hydra"
+execute_command "apt install -y tor"
+execute_command "apt install -y curl"
+execute_command "apt install -y gnupg2"
+execute_command "apt install -y samba"
 
 # Solicitar al usuario el nombre de la carpeta compartida
 folder_name=""
@@ -72,6 +81,7 @@ execute_command "git clone https://github.com/SergiGiribet/google-SignIn"
 execute_command "git clone https://github.com/rajkumardusad/IP-Tracer.git"
 execute_command "git clone https://github.com/Gerijacki/Mine-Startup"
 execute_command "git clone https://github.com/ShadowVMX/Web-Scanner"
+
 
 # Servidor web
 execute_command "rm /var/www/html/index.html"

@@ -13,6 +13,7 @@ apt install -y tor
 apt install -y curl
 apt install -y wget
 apt install -y gnupg2
+apt install -y zip
 
 #Samba
 apt install -y samba
@@ -55,6 +56,7 @@ git clone https://github.com/SergiGiribet/google-SignIn
 git clone https://github.com/rajkumardusad/IP-Tracer.git
 git clone https://github.com/Gerijacki/Mine-Startup
 git clone https://github.com/ShadowVMX/Web-Scanner 
+git clone https://github.com/jeanphorn/wordlist
 
 # Server web
 rm /var/www/html/index.html
