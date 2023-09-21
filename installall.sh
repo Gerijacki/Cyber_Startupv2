@@ -45,8 +45,8 @@ mkdir /var/www/html/imagenes
 # Metaexploit
 apt install curl gpg autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev libsqlite3-dev libpq-dev libpcap-dev libmagick++-dev libidn11-dev libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev libyaml-dev python3-dev liblzma-dev libtool
 apt install curl ca-certificates apt-transport-https software-properties-common lsb-release postgresql -y
-curl -fsSL https://apt.metasploit.com/metasploit-framework.gpg.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/metasploit.gpg > /dev/null
-echo "deb [signed-by=/usr/share/keyrings/metasploit.gpg] http://downloads.metasploit.com/data/releases/metasploit-framework/apt buster main" | sudo tee /etc/apt/sources.list.d/metasploit.list
+curl -fsSL https://apt.metasploit.com/metasploit-framework.gpg.key | gpg --dearmor | tee /usr/share/keyrings/metasploit.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/metasploit.gpg] http://downloads.metasploit.com/data/releases/metasploit-framework/apt buster main" | tee /etc/apt/sources.list.d/metasploit.list
 apt update
 apt install metasploit-framework
 
