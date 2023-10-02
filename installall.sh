@@ -57,6 +57,7 @@ git clone https://github.com/rajkumardusad/IP-Tracer.git
 git clone https://github.com/Gerijacki/Mine-Startup
 git clone https://github.com/ShadowVMX/Web-Scanner 
 git clone https://github.com/jeanphorn/wordlist
+git clone https://github.com/screetsec/TheFatRat
 
 # Server web
 rm /var/www/html/index.html
