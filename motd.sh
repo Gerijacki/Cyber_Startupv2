@@ -13,14 +13,15 @@ IP=$(hostname -I | awk '{print $1}')
 > /etc/motd
 
 # Escribir el mensaje del día
-echo "Bienvenido a $HOSTNAME"
-echo "Sistema Operativo: Debian"
-echo "Kernel: $KERNEL"
-echo "Usuarios Conectados: $USERS"
-echo "Uptime: $UPTIME"
-echo "Memoria Disponible: $MEMORY"
-echo "Espacio en Disco Disponible: $DISK"
-echo "Dirección IP: $IP"
+echo -e "\e[31mBienvenido a $HOSTNAME\e[0m"
+echo -e "\e[31mSistema Operativo: Debian\e[0m"
+echo -e "\e[31mKernel: $KERNEL\e[0m"
+echo -e "\e[31mUsuarios Conectados: $USERS\e[0m"
+echo -e "\e[31mUptime: $UPTIME\e[0m"
+echo -e "\e[31mMemoria Disponible: $MEMORY\e[0m"
+echo -e "\e[31mEspacio en Disco Disponible: $DISK\e[0m"
+echo -e "\e[31mDirección IP: $IP\e[0m"
+
 
 # Para que el script se ejecute automáticamente al iniciar sesión con cualquier usuario en Debian, 
 # puedes agregar la ruta del script al archivo /etc/profile

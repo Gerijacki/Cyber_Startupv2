@@ -43,12 +43,13 @@ mkdir /var/www/html/imagenes
 # Otras herramientas esenciales de ciberseguridad (añade o quita según tus necesidades)
 
 # Metaexploit
-apt install curl gpg autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev libsqlite3-dev libpq-dev libpcap-dev libmagick++-dev libidn11-dev libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev libyaml-dev python3-dev liblzma-dev libtool
-apt install curl ca-certificates apt-transport-https software-properties-common lsb-release postgresql -y
-curl -fsSL https://apt.metasploit.com/metasploit-framework.gpg.key | gpg --dearmor | tee /usr/share/keyrings/metasploit.gpg > /dev/null
-echo "deb [signed-by=/usr/share/keyrings/metasploit.gpg] http://downloads.metasploit.com/data/releases/metasploit-framework/apt buster main" | tee /etc/apt/sources.list.d/metasploit.list
-apt update
-apt install metasploit-framework
+
+# apt install curl gpg autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev libsqlite3-dev libpq-dev libpcap-dev libmagick++-dev libidn11-dev libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev libyaml-dev python3-dev liblzma-dev libtool
+# apt install curl ca-certificates apt-transport-https software-properties-common lsb-release postgresql -y
+# curl -fsSL https://apt.metasploit.com/metasploit-framework.gpg.key | gpg --dearmor | tee /usr/share/keyrings/metasploit.gpg > /dev/null
+# echo "deb [signed-by=/usr/share/keyrings/metasploit.gpg] http://downloads.metasploit.com/data/releases/metasploit-framework/apt buster main" | tee /etc/apt/sources.list.d/metasploit.list
+# apt update
+# apt install metasploit-framework
 
 # Clonar repositorios interesantes
 cd $folder_path
@@ -65,6 +66,9 @@ cp /$folder_path/Mine-Startup/index.html /var/www/html
 cp /$folder_path/Mine-Startup/image1.png /var/www/html
 cp /$folder_path/Mine-Startup/image2.png /var/www/html
 cp /$folder_path/Mine-Startup/image3.png /var/www/html
+
+# MOTD en debian
+echo "/cositas/Mine-Startupv2/motd.sh" >> /etc/profile
 
 echo "Se han instalado todas las herramientas correctamente"
 echo "Samba se ha instalado y configurado para compartir la carpeta $folder_name en $folder_path."
