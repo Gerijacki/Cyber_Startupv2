@@ -27,12 +27,12 @@ read -p "Ingresa la ruta de la carpeta que deseas compartir (por ejemplo, /ruta/
 
 # Agrega la configuración de la carpeta compartida a smb.conf
 mkdir $folder_path
-echo "[$folder_name]" >> /etc/samba/smb.conf
-echo "   path = $folder_path" >> /etc/samba/smb.conf
-echo "   writable = yes" >> /etc/samba/smb.conf
-echo "   guest ok = yes" >> /etc/samba/smb.conf
-echo "   browseable = yes" >> /etc/samba/smb.conf
-echo "   read only = no" >> /etc/samba/smb.conf
+# echo "[$folder_name]" >> /etc/samba/smb.conf
+# echo "   path = $folder_path" >> /etc/samba/smb.conf
+# echo "   writable = yes" >> /etc/samba/smb.conf
+# echo "   guest ok = yes" >> /etc/samba/smb.conf
+# echo "   browseable = yes" >> /etc/samba/smb.conf
+# echo "   read only = no" >> /etc/samba/smb.conf
 
 # Reinicia el servicio Samba
 systemctl restart smbd
