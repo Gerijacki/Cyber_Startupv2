@@ -14,6 +14,7 @@ apt install -y curl
 apt install -y wget
 apt install -y gnupg2
 apt install -y zip
+apt install -y neofetch
 
 #Samba
 apt install -y samba
