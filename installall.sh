@@ -71,5 +71,11 @@ cp /$folder_path/Mine-Startup/image3.png /var/www/html
 # MOTD en debian
 echo "/cositas/Mine-Startupv2/motd.sh" >> /etc/profile
 
+# Cositas Del auto-bspong
+cd auto-bspwm
+chmod +x setup.sh
+# Final
+
+echo -e "\e[31mFalta ejecutar el bspwm. ./setup.sh\e[0m"
 echo "Se han instalado todas las herramientas correctamente"
 echo "Samba se ha instalado y configurado para compartir la carpeta $folder_name en $folder_path."
