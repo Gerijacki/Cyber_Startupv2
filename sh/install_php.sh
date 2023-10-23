@@ -7,10 +7,10 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # Actualiza la lista de paquetes
-apt-get update
+apt update
 
 # Instala Apache y PHP junto con algunas extensiones comunes
-apt-get install -y apache2 php libapache2-mod-php php-mysql
+apt install -y apache2 php libapache2-mod-php php-mysql
 
 # Reinicia el servicio de Apache para aplicar los cambios
 systemctl restart apache2
