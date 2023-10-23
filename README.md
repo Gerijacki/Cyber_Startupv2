@@ -63,9 +63,20 @@ Ten en cuenta que el script realiza cambios significativos en la configuración 
 
 ---
 
+## Scripts:
+- Aquest repositori conté una varietat de scripts en Bash, Python i altres tecnologies que poden ajudar-te a realitzar tasques específiques relacionades amb la ciberseguretat. Assegura't de revisar i entendre cada script abans d'executar-lo.
+
+---
+
+## Ús Responsable
+
+Si us plau, tingues en compte que aquestes eines i scripts estan destinats a ser utilitzats en un entorn controlat i amb finalitats educatives. No has d'utilitzar aquestes eines per a activitats il·legals o nocius. És la teva responsabilitat conèixer i complir amb les lleis i regulacions locals relacionades amb la ciberseguretat.
+
+---
+
 ## DISCLAIMER
 
-El software de phishing és una eina que simula pàgines web legítimes per obtenir informació personal dels usuaris. Malgrat això, els creadors afirmen que la seva intenció no és perjudicar els usuaris, sinó per demostrar la vulnerabilitat de les pàgines web i promoure la seguretat informàtica.
+Els creadors afirmen que la seva intenció no és perjudicar els usuaris, sinó per demostrar la vulnerabilitat de les pàgines web i promoure la seguretat informàtica.
 El projecte ha estat desenvolupat amb l'objectiu de proporcionar als estudiants i als professionals de la seguretat informàtica una eina per comprendre les vulnerabilitats dels sistemes informàtics i les tècniques que poden utilitzar els hackers per accedir a informació confidencial.
 No ens fem responsables del posibles usos inadequats que se li puguin donar a aquesta eina.
 
