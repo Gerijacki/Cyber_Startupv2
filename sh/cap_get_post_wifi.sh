@@ -1,5 +1,9 @@
 #!/bin/bash
 
+apt update
+apt upgrade
+apt install tcpdump
+
 # Nombre del archivo de captura
 read -p "Ingresa el nombre del archivo final: " archivo_captura
 

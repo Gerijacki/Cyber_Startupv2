@@ -2,7 +2,7 @@
 
 apt update
 apt upgrade
-apt-get install dnsmasq
+apt-get install dnsmasq hostapd
 
 # Nombre de la interfaz WiFi
 read -p "Ingresa el nombre de la interfaz: " interfaz
