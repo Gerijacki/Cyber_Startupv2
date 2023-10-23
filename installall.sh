@@ -19,11 +19,11 @@ apt install -y neofetch
 #Samba
 apt install -y samba
 
-# Solicita al usuario el nombre de la carpeta compartida
-read -p "Ingresa el nombre de la carpeta compartida: " folder_name
+# # Solicita al usuario el nombre de la carpeta compartida
+# read -p "Ingresa el nombre de la carpeta compartida: " folder_name
 
 # Solicita al usuario el path de la carpeta que desea compartir
-read -p "Ingresa la ruta de la carpeta que deseas compartir (por ejemplo, /ruta/a/carpeta): " folder_path
+read -p "Ingresa la ruta de la carpeta que deseas crear (por ejemplo, /ruta/a/carpeta/carpeta): " folder_path
 
 # Agrega la configuración de la carpeta compartida a smb.conf
 mkdir $folder_path
@@ -35,7 +35,7 @@ mkdir $folder_path
 # echo "   read only = no" >> /etc/samba/smb.conf
 
 # Reinicia el servicio Samba
-systemctl restart smbd
+# systemctl restart smbd
 
 # Instalar Apache y configurar
 
@@ -52,6 +52,22 @@ mkdir /var/www/html/imagenes
 # apt update
 # apt install metasploit-framework
 
+# Server web
+rm /var/www/html/index.html
+cp ./index.html /var/www/html
+cp ./image1.png /var/www/html
+cp ./image2.png /var/www/html
+cp ./image3.png /var/www/html
+
+# MOTD en debian
+chmod +x ./sh/motd.sh
+cp ./sh/motd.sh /
+echo "/motd.sh" >> /etc/profile
+
+# Cositas Del auto-bspong
+cd auto-bspwm
+chmod +x setup.sh
+
 # Clonar repositorios interesantes
 cd $folder_path
 git clone https://github.com/SergiGiribet/google-SignIn
@@ -60,20 +76,7 @@ git clone https://github.com/Gerijacki/Mine-Startup
 git clone https://github.com/ShadowVMX/Web-Scanner 
 git clone https://github.com/jeanphorn/wordlist
 git clone https://github.com/screetsec/TheFatRat
-
-# Server web
-rm /var/www/html/index.html
-cp /$folder_path/Mine-Startup/index.html /var/www/html
-cp /$folder_path/Mine-Startup/image1.png /var/www/html
-cp /$folder_path/Mine-Startup/image2.png /var/www/html
-cp /$folder_path/Mine-Startup/image3.png /var/www/html
-
-# MOTD en debian
-echo "/cositas/Mine-Startupv2/motd.sh" >> /etc/profile
-
-# Cositas Del auto-bspong
-cd auto-bspwm
-chmod +x setup.sh
+git clone https://github.com/n0a/telegram-get-remote-ip
 # Final
 
 echo -e "\e[31mFalta ejecutar el bspwm. ./setup.sh\e[0m"
