@@ -3,6 +3,8 @@
 # Actualizar paquetes e instalar herramientas básicas
 apt update
 apt upgrade -y
+
+# INSTALL
 apt install -y git 
 apt install -y wget
 apt install -y nmap
@@ -19,6 +21,10 @@ apt install -y python
 apt install -y python2
 apt install -y python3
 apt install -y pip
+apt install -y aircrack-ng
+apt install -y hostapd
+apt install -y tcpdump
+apt install -y dnsmasq
 
 #Samba
 apt install -y samba
