@@ -1,62 +1,53 @@
+
 #!/bin/bash
 
-apt update
-apt upgrade
-apt-get install dnsmasq hostapd
+# Verifica si el script se está ejecutando como root
+if [[ $EUID -ne 0 ]]; then
+    echo "Este script debe ejecutarse como root" 
+    exit 1
+fi
 
-# Nombre de la interfaz WiFi
-read -p "Ingresa el nombre de la interfaz: " interfaz
+# Instalar hostapd y dnsmasq
+apt-get update
+apt-get install -y hostapd dnsmasq
 
-    # interfaz="wlan0"
-# Nombre del punto de acceso WiFi
-read -p "Ingresa el nombre de la wifi: " nombre_ap
-
-    # nombre_ap="MiRedWiFi"
-# Contraseña del punto de acceso
-read -p "Ingresa la contrasenya: " password
-
-    # password="MiPasswordWiFi"
-# Enlace al que redirigir a los usuarios
-read -p "Ingresa el link de redireccion: " enlace_redireccion
-
-    # enlace_redireccion="http://tusitio.com"
-
-# Detener el servicio de red
-service networking stop
-
-# Configurar la interfaz como punto de acceso
-ip link set dev $interfaz down
-ip addr flush dev $interfaz
-ip link set dev $interfaz up
-ip addr add 192.168.1.1/24 dev $interfaz
-
-# Configurar `hostapd`
-cat << EOF > /etc/hostapd/hostapd.conf
-interface=$interfaz
+# Configurar hostapd
+cat <<EOF > /etc/hostapd/hostapd.conf
+interface=wlan0
 driver=nl80211
-ssid=$nombre_ap
+ssid=MiRed
 hw_mode=g
 channel=6
 macaddr_acl=0
 auth_algs=1
 ignore_broadcast_ssid=0
 wpa=2
-wpa_passphrase=$password
+wpa_passphrase=MiContraseña
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 EOF
 
-# Configurar `dnsmasq` para redirigir a usuarios al enlace especificado
-echo "address=/#/192.168.1.1" >> /etc/dnsmasq.conf
-echo "address=/#/$enlace_redireccion" >> /etc/dnsmasq.conf
+# Configurar dnsmasq
+cat <<EOF > /etc/dnsmasq.conf
+interface=wlan0
+dhcp-range=192.168.1.2,192.168.1.20,255.255.255.0,24h
+EOF
 
-# Iniciar `hostapd` y `dnsmasq`
-hostapd /etc/hostapd/hostapd.conf
+# Habilitar IP Forwarding
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+sysctl -p
+
+# Configurar redirección automática
+echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE" >> /etc/rc.local
+echo "iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT" >> /etc/rc.local
+echo "iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT" >> /etc/rc.local
+echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 192.168.1.1:80" >> /etc/rc.local
+chmod +x /etc/rc.local
+
+# Reiniciar servicios
+service hostapd restart
 service dnsmasq restart
 
-# Habilitar enrutamiento IP
-echo 1 > /proc/sys/net/ipv4/ip_forward
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-
-echo "Punto de acceso WiFi ($nombre_ap) creado en la interfaz $interfaz. Usuarios redirigidos a: $enlace_redireccion."
+# Mostrar mensaje de finalización
+echo "Configuración completada. Tu punto de acceso WiFi está listo con redirección automática."
