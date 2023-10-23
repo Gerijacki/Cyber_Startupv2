@@ -15,6 +15,10 @@ apt install -y wget
 apt install -y gnupg2
 apt install -y zip
 apt install -y neofetch
+apt install -y python
+apt install -y python2
+apt install -y python3
+apt install -y pip
 
 #Samba
 apt install -y samba
@@ -77,6 +81,8 @@ git clone https://github.com/ShadowVMX/Web-Scanner
 git clone https://github.com/jeanphorn/wordlist
 git clone https://github.com/screetsec/TheFatRat
 git clone https://github.com/n0a/telegram-get-remote-ip
+git clone https://github.com/sherlock-project/sherlock.git
+
 # Final
 
 echo -e "\e[31mFalta ejecutar el bspwm. ./setup.sh\e[0m"
