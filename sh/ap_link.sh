@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Verifica si el script se está ejecutando como root
@@ -7,13 +6,15 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-# Instalar hostapd y dnsmasq
-apt-get update
-apt-get install -y hostapd dnsmasq
+# Configuración de interfaces y direcciones IP
+WLAN_INTERFACE="wlan0"
+ETH_INTERFACE="eth0"
+WLAN_IP="192.168.31.148"
+ETH_IP="192.168.31.111"
 
-# Configurar hostapd
+# Configurar hostapd para el punto de acceso WiFi
 cat <<EOF > /etc/hostapd/hostapd.conf
-interface=wlan0
+interface=$WLAN_INTERFACE
 driver=nl80211
 ssid=MiRed
 hw_mode=g
@@ -28,10 +29,10 @@ wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 EOF
 
-# Configurar dnsmasq
+# Configurar dnsmasq para DHCP y DNS
 cat <<EOF > /etc/dnsmasq.conf
-interface=wlan0
-dhcp-range=192.168.1.2,192.168.1.20,255.255.255.0,24h
+interface=$WLAN_INTERFACE
+dhcp-range=192.168.31.2,192.168.31.20,255.255.255.0,24h
 EOF
 
 # Habilitar IP Forwarding
@@ -39,11 +40,10 @@ echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 sysctl -p
 
 # Configurar redirección automática
-echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE" >> /etc/rc.local
-echo "iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT" >> /etc/rc.local
-echo "iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT" >> /etc/rc.local
-echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 192.168.1.1:80" >> /etc/rc.local
-chmod +x /etc/rc.local
+iptables -t nat -A POSTROUTING -o $ETH_INTERFACE -j MASQUERADE
+iptables -A FORWARD -i $ETH_INTERFACE -o $WLAN_INTERFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i $WLAN_INTERFACE -o $ETH_INTERFACE -j ACCEPT
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination $WLAN_IP:80
 
 # Reiniciar servicios
 service hostapd restart
@@ -51,3 +51,4 @@ service dnsmasq restart
 
 # Mostrar mensaje de finalización
 echo "Configuración completada. Tu punto de acceso WiFi está listo con redirección automática."
+
