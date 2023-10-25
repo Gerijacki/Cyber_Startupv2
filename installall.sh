@@ -70,8 +70,8 @@ cp ./image2.png /var/www/html
 cp ./image3.png /var/www/html
 
 # MOTD en debian
-chmod +x ./sh/motd.sh
-cp ./sh/motd.sh /
+chmod +x ./Shell/motd.sh
+cp ./Shell/motd.sh /
 echo "/motd.sh" >> /etc/profile
 
 # Cositas Del auto-bspong
