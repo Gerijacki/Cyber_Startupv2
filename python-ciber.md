@@ -1,4 +1,4 @@
-Claro, hay varios scripts interesantes en Python que son útiles para tareas relacionadas con la ciberseguridad. Aquí hay algunos ejemplos:
+Varios scripts interesantes en Python que son útiles para tareas relacionadas con la ciberseguridad. Aquí hay algunos ejemplos:
 
 1. **Escaneo de Puertos con `socket`**:
    Este script utiliza la biblioteca `socket` para escanear puertos en una dirección IP específica.
