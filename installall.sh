@@ -56,6 +56,7 @@ cp ./Shell/motd.sh /
 echo "/motd.sh" >> /etc/profile
 
 # Cositas Del auto-bspong
+git clone https://github.com/r1vs3c/auto-bspwm
 cd auto-bspwm
 chmod +x setup.sh
 
