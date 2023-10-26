@@ -5,26 +5,7 @@ apt update
 apt upgrade -y
 
 # INSTALL
-apt install -y git 
-apt install -y wget
-apt install -y nmap
-apt install -y apache2
-apt install -y john
-apt install -y hydra
-apt install -y tor
-apt install -y curl
-apt install -y wget
-apt install -y gnupg2
-apt install -y zip
-apt install -y neofetch
-apt install -y python
-apt install -y python2
-apt install -y python3
-apt install -y pip
-apt install -y aircrack-ng
-apt install -y hostapd
-apt install -y tcpdump
-apt install -y dnsmasq
+apt install -y git wget nmap apache2 john hydra tor curl wget gnupg2 zip neofetch python python2 python3 pip aircrack-ng hostapd tcpdump dnsmasq
 
 #Samba
 apt install -y samba
@@ -64,10 +45,10 @@ mkdir /var/www/html/imagenes
 
 # Server web
 rm /var/www/html/index.html
-cp ./index.html /var/www/html
-cp ./image1.png /var/www/html
-cp ./image2.png /var/www/html
-cp ./image3.png /var/www/html
+cp ./html/index.html /var/www/html
+cp ./html/image1.png /var/www/html
+cp ./html/image2.png /var/www/html
+cp ./html/image3.png /var/www/html
 
 # MOTD en debian
 chmod +x ./Shell/motd.sh

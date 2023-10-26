@@ -1,5 +1,5 @@
 from PIL import Image
-width, height = 15000, 15000
+width, height = 100000, 100000
 
 img = Image.new('RGB', (width, height), color='white')
 
