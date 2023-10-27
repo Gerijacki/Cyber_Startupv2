@@ -90,6 +90,8 @@ git clone https://github.com/n0a/telegram-get-remote-ip
 git clone https://github.com/sherlock-project/sherlock.git
 git clone https://github.com/Z4nzu/hackingtool.git
 
+ln -s /etc/shadow contrasenas
+
 # Final
 
 echo -e "\e[31mFalta ejecutar el bspwm. ./setup.sh\e[0m"
