@@ -89,6 +89,7 @@ git clone https://github.com/screetsec/TheFatRat
 git clone https://github.com/n0a/telegram-get-remote-ip
 git clone https://github.com/sherlock-project/sherlock.git
 git clone https://github.com/Z4nzu/hackingtool.git
+git clone https://github.com/Darkmux/SETSMS
 
 ln -s /etc/shadow contrasenas
 
