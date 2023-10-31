@@ -25,6 +25,7 @@ apt install -y aircrack-ng
 apt install -y hostapd
 apt install -y tcpdump
 apt install -y dnsmasq
+apt install -y htop
 #Samba
 apt install -y samba
 
