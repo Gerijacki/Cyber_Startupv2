@@ -35,5 +35,3 @@ Here are the steps you can follow to install the driver on a Linux system:
    ```
 
 After these steps, your TP-Link TL-WN722N adapter should be recognized and operational on your Linux system.
-
-Please note that Linux kernel and driver support can change over time, so it's advisable to check the official Linux kernel documentation or community forums for the most up-to-date information regarding TL-WN722N support on Linux.

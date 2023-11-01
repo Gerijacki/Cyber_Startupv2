@@ -1,5 +1,3 @@
-Certainly! Here is a step-by-step guide to manually install the latest version of Nextcloud on Debian 11. As of my last update in January 2022, please ensure you check Nextcloud's official website for any changes or updates related to their installation process.
-
 ### Prerequisites:
 - A Debian 11 system (physical or virtual machine).
 - Access to the terminal with sudo privileges.
