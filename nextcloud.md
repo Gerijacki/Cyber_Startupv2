@@ -23,8 +23,8 @@ Create a new database and user for Nextcloud:
 
 ```sql
 CREATE DATABASE nextcloud;
-CREATE USER 'nextclouduser'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextclouduser'@'localhost';
+CREATE USER 'jacki'@'localhost' IDENTIFIED BY 'passwd';
+GRANT ALL PRIVILEGES ON nextcloud.* TO 'jacki'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 ```
@@ -33,8 +33,8 @@ EXIT;
 
 ```bash
 cd /var/www/html
-sudo wget https://download.nextcloud.com/server/releases/nextcloud-[nextcloud_version].zip
-sudo unzip nextcloud-[nextcloud_version].zip
+sudo wget https://download.nextcloud.com/server/releases/nextcloud-27.1.3.zip
+sudo unzip nextcloud-27.1.3.zip
 sudo chown -R www-data:www-data nextcloud
 ```
 
@@ -78,6 +78,4 @@ sudo systemctl restart apache2
 
 #### 5. Complete Nextcloud Setup:
 
-Visit your server's IP address or domain in a web browser to complete the Nextcloud setup. Follow the on-screen instructions to finish the setup process.
-
-Remember to configure backups, security settings, and HTTPS for your Nextcloud instance for a complete and secure setup.
+Visit your server's IP address or domain in a web browser to complete the Nextcloud setup.

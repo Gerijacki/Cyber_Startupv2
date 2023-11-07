@@ -1,86 +1,53 @@
-# Descripción del Script Mine-Startupv2
+# README.md
 
-Este script de Bash tiene como objetivo automatizar la instalación y configuración de una serie de herramientas y servicios en un sistema Debian. Las acciones realizadas por el script se detallan a continuación:
+## Descripción
 
----
+Este script Bash automatiza la instalación de herramientas y configuraciones básicas en un sistema Debian. Instala y actualiza paquetes, herramientas de ciberseguridad, servicios como Apache y Samba, y clona varios repositorios útiles para pruebas y análisis.
 
-## Actualización de paquetes e instalación de herramientas básicas
-- Se actualiza la lista de paquetes y se instalan las siguientes herramientas básicas:
-  - `git`: Sistema de control de versiones.
-  - `wget`: Utilidad para la descarga de archivos desde la línea de comandos.
-  - `nmap`: Herramienta de escaneo de redes y detección de servicios.
-  - `apache2`: Servidor web Apache.
-  - `john`: Herramienta de recuperación de contraseñas.
-  - `hydra`: Herramienta de prueba de penetración para ataques de fuerza bruta.
-  - `tor`: Cliente de red anónima.
-  - `curl`: Herramienta para transferencias de datos con URL.
-  - `gnupg2`: Herramienta de cifrado y autenticación.
+## Requisitos
 
----
+- Sistema operativo: Debian
+- Acceso de superusuario (sudo)
 
-## Configuración de Samba
-- Se instala el servicio Samba para habilitar el uso compartido de archivos en red.
-- El usuario es solicitado para proporcionar el nombre de la carpeta compartida y la ruta de la carpeta que desea compartir.
-- Se agrega la configuración de la carpeta compartida al archivo `/etc/samba/smb.conf`.
-- Se reinicia el servicio Samba para aplicar los cambios.
+## Instrucciones de Uso
 
----
+1. **Ejecutar el Script:**
+   ```bash
+   chmod +x script.sh
+   ./script.sh
+   ```
 
-## Configuración de Apache
-- Se crea un directorio `/var/www/html/imagenes` en el servidor web Apache.
+2. **Configuración de Samba:**
+   - El script solicitará la ruta de la carpeta que deseas compartir.
+   - Samba se configura automáticamente para compartir la carpeta especificada.
 
----
+3. **Ejecución de bspwm:**
+   ```bash
+   ./setup.sh
+   ```
+   **Nota:** Asegúrate de ejecutar este paso después de la instalación para activar bspwm.
 
-## Otras herramientas esenciales de ciberseguridad
-- Se instala Metaexploit junto con una serie de dependencias necesarias.
-- Se configura el repositorio Metasploit y se instala el marco de msfvenom.
+## Herramientas Instaladas
 
----
+- Git, wget, nmap, Apache2, John the Ripper, Hydra, Tor, cURL, GNUPG, Zip, Neofetch, Python, Python2, Python3, pip, Aircrack-ng, Hostapd, Tcpdump, Dnsmasq, Htop, Samba, y otras herramientas esenciales de ciberseguridad.
 
-## Clonación de repositorios interesantes
-- Se clonan varios repositorios de GitHub en la ubicación especificada por el usuario.
+## Repositorios Clonados
 
----
+- [Google SignIn](https://github.com/SergiGiribet/google-SignIn)
+- [IP Tracer](https://github.com/rajkumardusad/IP-Tracer.git)
+- [Mine Startup](https://github.com/Gerijacki/Mine-Startup)
+- [Web Scanner](https://github.com/ShadowVMX/Web-Scanner)
+- [Wordlist](https://github.com/jeanphorn/wordlist)
+- [TheFatRat](https://github.com/screetsec/TheFatRat)
+- [Telegram Get Remote IP](https://github.com/n0a/telegram-get-remote-ip)
+- [Sherlock](https://github.com/sherlock-project/sherlock.git)
+- [Hackingtool](https://github.com/Z4nzu/hackingtool.git)
+- [SETSMS](https://github.com/Darkmux/SETSMS)
+- [AnonGT](https://github.com/gt0day/AnonGT)
 
-## Configuración del servidor web
-- Se elimina el archivo `index.html` predeterminado en el servidor web Apache.
-- Se copian archivos HTML y recursos de un repositorio clonado en el directorio `/var/www/html` para servir como página web.
+## Notas Adicionales
 
----
+- Se ha creado un enlace simbólico para el archivo `/etc/shadow` llamado `contrasenas`.
+- Al finalizar la instalación, se mostrará un mensaje indicando que falta ejecutar bspwm y que todas las herramientas se han instalado correctamente.
 
-## Mensajes de confirmación
-- Se muestran mensajes que indican que todas las herramientas se han instalado correctamente y que Samba se ha configurado para compartir la carpeta especificada.
-
----
-
-**Nota**: Este script asume que se está ejecutando en un sistema Debian y puede requerir privilegios de superusuario para instalar y configurar algunos paquetes y servicios.
-
-## Uso
-1. Copia el script en tu sistema Debian.
-2. Ejecuta el script utilizando `bash` u otro intérprete de comandos.
-
-Ten en cuenta que el script realiza cambios significativos en la configuración de tu sistema y la instalación de software, por lo que debes comprender y revisar cuidadosamente el código antes de ejecutarlo.
-
----
-
-## Scripts:
-- Aquest repositori conté una varietat de scripts en Bash, Python i altres tecnologies que poden ajudar-te a realitzar tasques específiques relacionades amb la ciberseguretat. Assegura't de revisar i entendre cada script abans d'executar-lo.
-
----
-
-## Ús Responsable
-
-Si us plau, tingues en compte que aquestes eines i scripts estan destinats a ser utilitzats en un entorn controlat i amb finalitats educatives. No has d'utilitzar aquestes eines per a activitats il·legals o nocius. És la teva responsabilitat conèixer i complir amb les lleis i regulacions locals relacionades amb la ciberseguretat.
-
----
-
-## DISCLAIMER
-
-Els creadors afirmen que la seva intenció no és perjudicar els usuaris, sinó per demostrar la vulnerabilitat de les pàgines web i promoure la seguretat informàtica.
-El projecte ha estat desenvolupat amb l'objectiu de proporcionar als estudiants i als professionals de la seguretat informàtica una eina per comprendre les vulnerabilitats dels sistemes informàtics i les tècniques que poden utilitzar els hackers per accedir a informació confidencial.
-No ens fem responsables del posibles usos inadequats que se li puguin donar a aquesta eina.
-
-![Rickroll](./media/roll.gif)
-
----
-
+¡Disfruta explorando y utilizando estas herramientas!
