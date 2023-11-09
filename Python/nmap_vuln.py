@@ -1,6 +1,6 @@
 import nmap
     
-    target_host = "example.com"
+    target_host = "ginebro.cat"
     
     scanner = nmap.PortScanner()
     scanner.scan(target_host, arguments="-sV -O")
