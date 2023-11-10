@@ -49,6 +49,22 @@ docker run -u zap -p 8080:8080 -p 8090:8090 -i owasp/zap2docker-stable zap-websw
 # Ejecuta un servidor de Minecraft en Docker
 docker run -d -p 25565:25565 --name minecraft-server itzg/minecraft-server
 
+# Abre puertos en el firewall (ufw)
+ufw allow 22          # SSH
+ufw allow 137/udp     # Samba
+ufw allow 138/udp     # Samba
+ufw allow 139         # Samba
+ufw allow 445         # Samba
+ufw allow 2375/tcp    # Docker API (opcional, ten en cuenta las implicaciones de seguridad)
+ufw allow 17600/tcp   # OnionShare
+ufw allow 9000/tcp    # Portainer
+ufw allow 8080/tcp    # OWASP ZAP
+ufw allow 8090/tcp    # OWASP ZAP
+ufw allow 25565/tcp   # Minecraft Server
+
+# Habilita ufw
+ufw --force enable
+
 # Configura mensaje del día (MOTD)
 chmod +x ../Shell/motd.sh
 cp ../Shell/motd.sh /
