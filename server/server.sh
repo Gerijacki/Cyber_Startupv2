@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Verifica si el script se está ejecutando como root
 if [[ $EUID -ne 0 ]]; then
     echo "Este script debe ejecutarse como root" 
@@ -7,66 +9,51 @@ fi
 # Actualiza la lista de paquetes
 apt update -y
 apt upgrade -y 
+
+# Instala software básico
 apt install -y ftp  
 apt install -y ssh
 apt install -y openssh-server
 systemctl enable ssh
-# apt install -y cockpit 
+
+# Instala y habilita Samba
 apt install -y samba
 systemctl enable smb
-apt install -y ntfy
+
+# Instala Snap y Core
 apt install -y snap
 snap install core
+
+# Instala Tor
 apt install -y tor
+
+# Instala Git
 apt install -y git
-# apt install -y docker.io
-# systemctl enable docker.io
+
+# Instala Docker y habilita el servicio
+apt install -y docker.io
+systemctl enable docker.io
+
+# Instala OnionShare y lo inicia
 apt install -y onionshare
 systemctl start onionshare
 
-#Pi Hole
-# curl -sSL https://install.pi-hole.net | sudo bash
-# pihole -a -p
-# docker run -d --name pihole -e ServerIP=192.168.31.111 -e TZ=Europe/Madrid -e WEBPASSWORD=1234 -p 53:53/tcp -p 53:53/udp -p 80:80 -p 443:443 --restart=unless-stopped pihole/pihole:latest
-#Docker ntfy
+# Instala Portainer y realiza configuración inicial
+apt install -y portainer
+docker volume create portainer_data
+docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
-# Crear el archivo de configuración server.yml en /etc/ntfy/
-# sudo mkdir -p /etc/ntfy
-# echo "base-url: http://192.168.31.111" | sudo tee /etc/ntfy/server.yml
-# echo "upstream-base-url: "https://ntfy.sh"" | sudo tee -a /etc/ntfy/server.yml
+# Ejecuta OWASP ZAP en un contenedor Docker
+docker run -u zap -p 8080:8080 -p 8090:8090 -i owasp/zap2docker-stable zap-webswing.sh
 
-# Iniciar el servidor de Docker con ntfy
-# sudo docker run \
-#     -v /var/cache/ntfy:/var/cache/ntfy \
-#     -v /etc/ntfy:/etc/ntfy \
-#     -p 80:80 \
-#     -itd \
-#     binwiederhier/ntfy \
-#     serve \
-#     --cache-file /var/cache/ntfy/cache.db
+# Ejecuta un servidor de Minecraft en Docker
+docker run -d -p 25565:25565 --name minecraft-server itzg/minecraft-server
 
-# echo "ntfy se ha instalado y configurado correctamente mediante Docker."
-break
-
-# Instala Apache y PHP junto con algunas extensiones comunes
-apt install -y apache2 php libapache2-mod-php php-mysql
-
-# Reinicia el servicio de Apache para aplicar los cambios
-systemctl restart apache2
-
-# Verifica el estado del servicio de Apache
-if systemctl is-active --quiet apache2; then
-    echo "Servidor Apache y PHP han sido instalados y configurados correctamente."
-else
-    echo "Hubo un problema al instalar Apache y PHP. Por favor, verifica el sistema e intenta nuevamente."
-fi
-
-#MOTD
-
+# Configura mensaje del día (MOTD)
 chmod +x ../Shell/motd.sh
 cp ../Shell/motd.sh /
 echo "/motd.sh" >> /etc/profile
 
-# web ip:9090
-
-echo "Configuració Acabada"
+# Mensaje de finalización
+echo "Configuración Acabada"
+echo -e "\e[31mConfiguración Acabada\e[0m"
