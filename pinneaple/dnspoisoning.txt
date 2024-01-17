@@ -1,0 +1,2 @@
+root@mk7:~# nano /etc/hosts
+root@mk7:~# killall dnsmasq && /etc/init.d/dnsmasq start
