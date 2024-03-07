@@ -1,53 +1,61 @@
-# README.md
+<h1 align="center">My Cyber_Startupv2</h1>
 
-## Descripción
+<p align="center">
+  <img src="https://github.com/Gerijacki.png" width="100" alt="Logo"/><br/>
+  Hi 👋, I'm <a href="https://github.com/Gerijacki">Gerijacki</a>
+</p>
 
-Este script Bash automatiza la instalación de herramientas y configuraciones básicas en un sistema Debian. Instala y actualiza paquetes, herramientas de ciberseguridad, servicios como Apache y Samba, y clona varios repositorios útiles para pruebas y análisis.
+<p align="center">
+  <a href="https://github.com/Gerijacki/Cyber_startupv2/stargazers"><img src="https://img.shields.io/github/stars/Gerijacki/Cyber_startupv2?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
+  <a href="https://github.com/Gerijacki/Cyber_startupv2/issues"><img src="https://img.shields.io/github/issues/Gerijacki/Cyber_startupv2?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
+  <a href="https://github.com/Gerijacki/Cyber_startupv2/contributors"><img src="https://img.shields.io/github/contributors/Gerijacki/Cyber_startupv2?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+</p>
 
-## Requisitos
+# Cybersecurity Repository
 
-- Sistema operativo: Debian
-- Acceso de superusuario (sudo)
+Welcome to the Cybersecurity Repository! This repository serves as a centralized hub for various cybersecurity-related materials, including scripts, resources, and information. Whether you're a cybersecurity professional, enthusiast, or learner, you'll find valuable content to enhance your knowledge and practices.
 
-## Instrucciones de Uso
+## Table of Contents
 
-1. **Ejecutar el Script:**
-   ```bash
-   chmod +x script.sh
-   ./script.sh
-   ```
+- [Introduction](#introduction)
+- [Scripts](#scripts)
+- [Resources](#resources)
+- [Contributing](#contributing)
+- [License](#license)
 
-2. **Configuración de Samba:**
-   - El script solicitará la ruta de la carpeta que deseas compartir.
-   - Samba se configura automáticamente para compartir la carpeta especificada.
+## Introduction
 
-3. **Ejecución de bspwm:**
-   ```bash
-   ./setup.sh
-   ```
-   **Nota:** Asegúrate de ejecutar este paso después de la instalación para activar bspwm.
+Cybersecurity is a critical aspect of modern technology, and this repository aims to provide a comprehensive collection of resources to support your cybersecurity endeavors. From scripts to automate tasks to informative resources covering a range of cybersecurity topics, this repository is designed to be a valuable asset to the cybersecurity community.
 
-## Herramientas Instaladas
+## Scripts
 
-- Git, wget, nmap, Apache2, John the Ripper, Hydra, Tor, cURL, GNUPG, Zip, Neofetch, Python, Python2, Python3, pip, Aircrack-ng, Hostapd, Tcpdump, Dnsmasq, Htop, Samba, y otras herramientas esenciales de ciberseguridad.
+The repository contains a variety of scripts designed to assist in cybersecurity tasks. These scripts are crafted to enhance efficiency and effectiveness in various aspects of cybersecurity operations. Feel free to explore and utilize these scripts to streamline your workflow and bolster your security practices.
 
-## Repositorios Clonados
+## Resources
 
-- [Google SignIn](https://github.com/SergiGiribet/google-SignIn)
-- [IP Tracer](https://github.com/rajkumardusad/IP-Tracer.git)
-- [Mine Startup](https://github.com/Gerijacki/Mine-Startup)
-- [Web Scanner](https://github.com/ShadowVMX/Web-Scanner)
-- [Wordlist](https://github.com/jeanphorn/wordlist)
-- [TheFatRat](https://github.com/screetsec/TheFatRat)
-- [Telegram Get Remote IP](https://github.com/n0a/telegram-get-remote-ip)
-- [Sherlock](https://github.com/sherlock-project/sherlock.git)
-- [Hackingtool](https://github.com/Z4nzu/hackingtool.git)
-- [SETSMS](https://github.com/Darkmux/SETSMS)
-- [AnonGT](https://github.com/gt0day/AnonGT)
+In addition to scripts, this repository offers a plethora of resources to augment your cybersecurity knowledge. These resources include guides, tutorials, articles, and best practices covering a wide array of cybersecurity topics. Whether you're interested in cryptography, penetration testing, or security best practices, you'll find valuable insights to further your understanding and proficiency.
 
-## Notas Adicionales
+## Contributing
 
-- Se ha creado un enlace simbólico para el archivo `/etc/shadow` llamado `contrasenas`.
-- Al finalizar la instalación, se mostrará un mensaje indicando que falta ejecutar bspwm y que todas las herramientas se han instalado correctamente.
+Contributions to this repository are welcome and encouraged. Whether you have scripts, resources, or insights to share, your contributions can help enrich the cybersecurity community's collective knowledge. To contribute, simply fork this repository, make your changes, and submit a pull request. Together, we can collaborate to strengthen cybersecurity practices and defenses.
 
-¡Disfruta explorando y utilizando estas herramientas!
+## License
+
+This repository is licensed under the [MIT License](LICENSE), which permits unrestricted use, distribution, and modification, subject to the terms and conditions outlined in the license agreement.
+
+---
+
+**Disclaimer:** The materials provided in this repository are for educational and informational purposes only. Users are solely responsible for their actions and should exercise caution when applying these tools and techniques in real-world scenarios.
+
+---
+
+<p align="center">
+  <a href="https://github.com/Gerijacki">
+    <img src="https://github-readme-stats.vercel.app/api?username=Gerijacki&show_icons=true&theme=dark&count_private=true" alt="GitHub Stats" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Trilokia/Trilokia/379277808c61ef204768a61bbc5d25bc7798ccf1/bottom_header.svg" />
+</p>
+
