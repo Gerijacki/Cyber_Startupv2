@@ -1,5 +1,8 @@
 #!/bin/bash
-
+if [[ $EUID -ne 0 ]]; then
+    echo "Este script debe ejecutarse como root" 
+    exit 1
+fi
 # Funció per mostrar el menú
 mostrar_menu() {
     clear
@@ -25,7 +28,7 @@ posar_mode_monitor() {
     echo "Posant la interfície en mode monitor..."
     echo "********************************************************"
     read -p "Introdueix la interfície de xarxa (p. ex., wlan0): " interface
-    sudo airmon-ng start $interface
+    airmon-ng start $interface
     echo "********************************************************"
     echo "La interfície $interface ha estat posada en mode monitor."
     echo "********************************************************"
@@ -38,7 +41,7 @@ desactivar_mode_monitor() {
     echo "Desactivant el mode monitor..."
     echo "********************************************************"
     read -p "Introdueix la interfície de xarxa (p. ex., wlan0mon): " interface
-    sudo airmon-ng stop $interface
+    airmon-ng stop $interface
     echo "********************************************************"
     echo "El mode monitor ha estat desactivat per la interfície $interface."
     echo "********************************************************"
@@ -52,7 +55,7 @@ escanejar_i_guardar_csv() {
     echo "********************************************************"
     read -p "Introdueix la interfície de xarxa en mode monitor (p. ex., wlan0mon): " interface
     read -p "Introdueix el nom del fitxer CSV (sense extensió): " csv_file
-    sudo airodump-ng $interface -w $csv_file
+    airodump-ng $interface -w $csv_file
     echo "********************************************************"
     echo "Les xarxes WiFi escanejades han estat guardades en el fitxer CSV $csv_file.csv."
     echo "********************************************************"
@@ -66,15 +69,12 @@ escanejar_i_guardar_json() {
     echo "********************************************************"
     read -p "Introdueix la interfície de xarxa en mode monitor (p. ex., wlan0mon): " interface
     read -p "Introdueix el nom del fitxer JSON (sense extensió): " json_file
-    sudo airodump-ng $interface -w $json_file
+    airodump-ng $interface -w $json_file
     echo "********************************************************"
     echo "Les xarxes WiFi escanejades han estat guardades en el fitxer JSON $json_file.json."
     echo "********************************************************"
 }
 
-# Resta de funcions...
-
-# Bucle principal
 while true; do
     mostrar_menu
     read -p "Selecciona una opció: " opcio
